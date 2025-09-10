@@ -1,0 +1,73 @@
+<!-- ====== 오시는 길 / 약도 섹션 시작 ====== -->
+<section id="directions" style="margin-top:32px">
+  <h2 style="margin:0 0 12px; font-size:22px">오시는 길 · 약도</h2>
+
+  <!-- 핵심 안내 -->
+  <div style="background:#0f1730;border:1px solid #1a2344;border-radius:12px;padding:16px">
+    <ul style="margin:0; padding-left:18px; line-height:1.7; color:#cfe0ff; font-size:14px">
+      <li><strong>주소</strong> : 서울특별시 마포구 합정동 382-20 (스퀘어리버뷰합정), 3층·4층  
+        마포청년창업취업지원센터 나루</li>
+      <li><strong>지하철</strong> : 2·6호선 <strong>합정역 8번 출구</strong>에서 도보 약 216m</li>
+      <li><strong>연락처</strong> : 02-6261-1939</li>
+      <li><strong>팩스</strong> : 02-6261-1941</li>
+    </ul>
+
+    <!-- 네이버/카카오 길찾기 링크 -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
+      <a class="btn" href="https://map.naver.com/p/search/%EB%A7%88%ED%8F%AC%EC%B2%AD%EB%85%84%EB%82%98%EB%A3%A8/place/1281073055?c=15.00,0,0,0,dh&isCorrectAnswer=true&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202509101704&locale=ko&svcName=map_pcv5&searchText=%EB%A7%88%ED%8F%AC%EC%B2%AD%EB%85%84%EB%82%98%EB%A3%A8"
+         target="_blank" rel="noopener"
+         style="border:none;border-radius:12px;padding:12px 16px;background:#1d2a52;color:#e9ecf1;text-decoration:none;font-weight:600">
+        네이버지도 길찾기
+      </a>
+      <a class="btn" href="https://place.map.kakao.com/1617185405"
+         target="_blank" rel="noopener"
+         style="border:none;border-radius:12px;padding:12px 16px;background:#1d2a52;color:#e9ecf1;text-decoration:none;font-weight:600">
+        카카오맵 길찾기
+      </a>
+    </div>
+    <div style="font-size:12px;color:#9fb0cf;margin-top:6px">앱 미설치 시 웹 지도로 열립니다.</div>
+  </div>
+
+  <!-- 임베드 약도 (Kakao) -->
+  <div style="margin-top:16px;background:#0f1730;border:1px solid #1a2344;border-radius:12px;padding:12px;height:420px;position:relative">
+    <div style="position:absolute;left:12px;top:10px;font-size:12px;background:rgba(0,0,0,.35);padding:4px 8px;border-radius:8px;color:#cde1ff">Kakao 약도</div>
+    <div id="kakao-map" style="width:100%;height:100%;border-radius:8px"></div>
+  </div>
+</section>
+<!-- ====== 오시는 길 / 약도 섹션 끝 ====== -->
+
+<!-- 지도 스크립트 -->
+<script>
+  // 📍 마포청년나루 실제 위치 좌표
+  const LAT = 37.549463;   // 위도
+  const LNG = 126.912146;  // 경도
+  const PLACE_NAME = "마포청년나루";
+</script>
+
+<!-- Kakao Map SDK (JavaScript 키 넣기) -->
+<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=6cdb10206a012a3420b655b28879c51b&autoload=false"></script>
+
+
+<script>
+  
+  kakao.maps.load(function () {
+    const container = document.getElementById('kakao-map');
+    const center = new kakao.maps.LatLng(LAT, LNG);
+
+    // 지도 생성
+    const map = new kakao.maps.Map(container, {
+      center: center,
+      level: 3
+    });
+
+    // 마커 생성
+    const marker = new kakao.maps.Marker({ position: center });
+    marker.setMap(map);
+
+    // 인포윈도우 표시
+    const info = new kakao.maps.InfoWindow({
+      content: `<div style="padding:6px 10px;font-size:12px">${PLACE_NAME}</div>`
+    });
+    info.open(map, marker);
+  });
+</script>
