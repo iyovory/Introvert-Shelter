@@ -1,73 +1,294 @@
-<!-- ====== 오시는 길 / 약도 섹션 시작 ====== -->
-<section id="directions" style="margin-top:32px">
-  <h2 style="margin:0 0 12px; font-size:22px">오시는 길 · 약도</h2>
+<!doctype html>
+<html lang="ko">
 
-  <!-- 핵심 안내 -->
-  <div style="background:#0f1730;border:1px solid #1a2344;border-radius:12px;padding:16px">
-    <ul style="margin:0; padding-left:18px; line-height:1.7; color:#cfe0ff; font-size:14px">
-      <li><strong>주소</strong> : 서울특별시 마포구 합정동 382-20 (스퀘어리버뷰합정), 3층·4층  
-        마포청년창업취업지원센터 나루</li>
-      <li><strong>지하철</strong> : 2·6호선 <strong>합정역 8번 출구</strong>에서 도보 약 216m</li>
-      <li><strong>연락처</strong> : 02-6261-1939</li>
-      <li><strong>팩스</strong> : 02-6261-1941</li>
-    </ul>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>내향인 대피소 오시는길🏕️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
 
-    <!-- 네이버/카카오 길찾기 링크 -->
-    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
-      <a class="btn" href="https://map.naver.com/p/search/%EB%A7%88%ED%8F%AC%EC%B2%AD%EB%85%84%EB%82%98%EB%A3%A8/place/1281073055?c=15.00,0,0,0,dh&isCorrectAnswer=true&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202509101704&locale=ko&svcName=map_pcv5&searchText=%EB%A7%88%ED%8F%AC%EC%B2%AD%EB%85%84%EB%82%98%EB%A3%A8"
-         target="_blank" rel="noopener"
-         style="border:none;border-radius:12px;padding:12px 16px;background:#1d2a52;color:#e9ecf1;text-decoration:none;font-weight:600">
-        네이버지도 길찾기
-      </a>
-      <a class="btn" href="https://place.map.kakao.com/1617185405"
-         target="_blank" rel="noopener"
-         style="border:none;border-radius:12px;padding:12px 16px;background:#1d2a52;color:#e9ecf1;text-decoration:none;font-weight:600">
-        카카오맵 길찾기
-      </a>
-    </div>
-    <div style="font-size:12px;color:#9fb0cf;margin-top:6px">앱 미설치 시 웹 지도로 열립니다.</div>
+  <style>
+    :root {
+      --bg: #0b1226;
+      --card: #0f1730;
+      --card-border: #1a2344;
+      --text: #eaf0ff;
+      --muted: #9fb0cf;
+      --accent: #7aa7ff;
+      --btn: #1d2a52;
+      --btn-text: #e9ecf1;
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f8ff;
+        --card: #fff;
+        --card-border: #e6ebff;
+        --text: #0f1a2b;
+        --muted: #556a8d;
+        --accent: #3b6cff;
+        --btn: #eef2ff;
+        --btn-text: #0f1a3a;
+        --shadow: 0 10px 30px rgba(21, 48, 120, .10);
+      }
+    }
+
+    body {
+      background: var(--bg);
+      margin: 0;
+      color: var(--text);
+
+      
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  color:#333;
+  font-style: normal;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+
+    /* 헤더 */
+    .dir-header h2 {
+      margin: 0 0 16px;
+      font-size: 24px;    text-align: center;
+    }
+
+
+    /* 레이아웃 */
+    .dir-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+    }
+
+    @media (max-width:960px) {
+      .dir-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* 카드 */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+
+    /* 버튼들 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      background: var(--btn);
+      color: var(--btn-text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+      transition: transform .08s ease, box-shadow .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, .22);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .cta-row .btn {
+      flex: 1;
+      justify-content: center;
+    }
+
+
+    /* 지도 카드 & 지도 박스 — 중요: min-height로 접힘 방지 */
+    .map-card {
+      padding: 12px;
+      position: relative
+    }
+
+    .map-card,
+    #kakao-map {
+      min-height: 420px;
+    }
+
+    #kakao-map {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .map-badge {
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      font-size: 12px;
+      background: rgba(0, 0, 0, .35);
+      color: #cde1ff;
+      padding: 4px 8px;
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+      z-index: 2;
+    }
+
+    .logo {
+      width: 1.3em;
+      height: 1.3em;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- ====== 오시는 길 / 약도 섹션 시작 ====== -->
+    <section id="directions">
+      <header class="dir-header">
+        <h2>내향인 대피소 오시는길🏕️</h2>
+      </header>
+
+      <div class="dir-grid">
+
+        <!-- 임베드 약도 (Kakao) -->
+        <article class="card map-card">
+          <div class="map-badge">Kakao 약도</div>
+          <div id="kakao-map"></div>
+        </article>
+
+
+        <!-- 핵심 안내 카드 -->
+        <article class="card">
+
+          <!-- 네이버/카카오 길찾기 -->
+          <div class="cta-row">
+            <a class="btn" target="_blank" rel="noopener"
+              href="https://map.naver.com/p/search/%EB%A7%88%ED%8F%AC%EC%B2%AD%EB%85%84%EB%82%98%EB%A3%A8/place/1281073055?c=15.00,0,0,0,dh&isCorrectAnswer=true&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202509101704&locale=ko&svcName=map_pcv5&searchText=%EB%A7%88%ED%8F%AC%EC%B2%AD%EB%85%84%EB%82%98%EB%A3%A8">
+              <!-- ★ Naver 아이콘: 기존 모양 유지, 크기만 1.3em -->
+              <svg class="logo" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+                <!-- Blue bar -->
+                <rect x="180" y="340" width="300" height="80" rx="16" fill="#2C6BFF"/>
+                <!-- Green pin -->
+                <path d="M256 64
+                         C176 64 112 128 112 208
+                         C112 304 224 432 248 464
+                         C252 470 260 470 264 464
+                         C288 432 400 304 400 208
+                         C400 128 336 64 256 64Z" fill="#03C75A"/>
+                <!-- White N (thicker) -->
+                <text x="256" y="240" text-anchor="middle" font-family="Arial, sans-serif"
+                      font-size="180" font-weight="900" fill="#FFFFFF" dominant-baseline="middle">N</text>
+              </svg>
+              네이버지도
+            </a>
+
+            <a class="btn" target="_blank" rel="noopener" href="https://place.map.kakao.com/1617185405">
+              <!-- ★ Kakao 아이콘: 기존 모양 유지, 크기만 1.3em -->
+              <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+                <!-- Yellow background -->
+                <rect width="100" height="100" fill="#FFD400" />
+                <!-- Pin body -->
+                <path fill="#0A7AFF"
+                  d="M50 8c-18.8 0-34 15.2-34 34 0 23 34 50 34 50s34-27 34-50c0-18.8-15.2-34-34-34z" />
+                <!-- Inner hole -->
+                <circle cx="50" cy="42" r="10" fill="#FFFFFF" />
+              </svg>
+              카카오맵
+            </a>
+          </div>
+
+          <div style="text-align:center; margin-top: 22px; line-height: 1.6;">
+            9/27(토) 마포청년나루에서<br/>
+            우리와 같은 '위장 외향인'들과<br/>
+            오늘 작성해 주신 답변을 포함한<br/>
+            다양한 이야기들을 나눠보아요☺
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- ====== 오시는 길 / 약도 섹션 끝 ====== -->
   </div>
 
-  <!-- 임베드 약도 (Kakao) -->
-  <div style="margin-top:16px;background:#0f1730;border:1px solid #1a2344;border-radius:12px;padding:12px;height:420px;position:relative">
-    <div style="position:absolute;left:12px;top:10px;font-size:12px;background:rgba(0,0,0,.35);padding:4px 8px;border-radius:8px;color:#cde1ff">Kakao 약도</div>
-    <div id="kakao-map" style="width:100%;height:100%;border-radius:8px"></div>
-  </div>
-</section>
-<!-- ====== 오시는 길 / 약도 섹션 끝 ====== -->
+  <!-- ====== 좌표/명칭 ====== -->
+  <script>
+    // 📍 마포청년나루 실제 위치 좌표 (사용자 제공 그대로 유지)
+    const LAT = 37.549463;   // 위도
+    const LNG = 126.912146;  // 경도
+    const PLACE_NAME = "마포청년센터 나루";
+  </script>
 
-<!-- 지도 스크립트 -->
-<script>
-  // 📍 마포청년나루 실제 위치 좌표
-  const LAT = 37.549463;   // 위도
-  const LNG = 126.912146;  // 경도
-  const PLACE_NAME = "마포청년나루";
-</script>
+  <!-- ====== Kakao Map SDK (반드시 1회만 포함) ====== -->
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=6cdb10206a012a3420b655b28879c51b&autoload=false"></script>
 
-<!-- Kakao Map SDK (JavaScript 키 넣기) -->
-<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=6cdb10206a012a3420b655b28879c51b&autoload=false"></script>
+  <!-- ====== 지도 로딩: DOMContentLoaded → kakao.maps.load → relayout ====== -->
+  <script>
 
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!window.kakao || !kakao.maps || !kakao.maps.load) {
+        console.warn('Kakao SDK가 아직 준비되지 않았습니다.');
+        return;
+      }
+      kakao.maps.load(function () {
+        const container = document.getElementById('kakao-map');
+        if (!container) return;
 
-<script>
-  
-  kakao.maps.load(function () {
-    const container = document.getElementById('kakao-map');
-    const center = new kakao.maps.LatLng(LAT, LNG);
+        const center = new kakao.maps.LatLng(LAT, LNG);
 
-    // 지도 생성
-    const map = new kakao.maps.Map(container, {
-      center: center,
-      level: 3
+        // 지도 생성
+        const map = new kakao.maps.Map(container, { center, level: 3 });
+
+        // 마커
+        const marker = new kakao.maps.Marker({ position: center });
+        marker.setMap(map);
+
+        // 인포윈도우
+        const info = new kakao.maps.InfoWindow({
+          content: `<div style="padding:6px 10px;font-size:12px">${PLACE_NAME}</div>`
+        });
+        info.open(map, marker);
+
+        // 첫 렌더 직후 레이아웃 재계산 + 센터 보정
+        requestAnimationFrame(() => {
+          map.relayout();
+          map.setCenter(center);
+        });
+
+        // 박스 크기 변화 대응 (탭/아코디언/반응형)
+        if ('ResizeObserver' in window) {
+          new ResizeObserver(() => {
+            map.relayout();
+            map.setCenter(center);
+          }).observe(container);
+        }
+
+        // (선택) 1초 뒤 한 번 더 보정 — 초반 폰트/이미지 로딩에 의한 점프 방지
+        setTimeout(() => {
+          map.relayout();
+          map.setCenter(center);
+        }, 1000);
+      });
     });
+  </script>
+</body>
 
-    // 마커 생성
-    const marker = new kakao.maps.Marker({ position: center });
-    marker.setMap(map);
-
-    // 인포윈도우 표시
-    const info = new kakao.maps.InfoWindow({
-      content: `<div style="padding:6px 10px;font-size:12px">${PLACE_NAME}</div>`
-    });
-    info.open(map, marker);
-  });
-</script>
+</html>
