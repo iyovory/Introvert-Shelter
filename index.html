@@ -46,7 +46,6 @@
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
-  color:#333;
   font-style: normal;
     }
 
@@ -157,6 +156,7 @@
       height: 1.3em;
       flex-shrink: 0;
     }
+
   </style>
 </head>
 
@@ -218,10 +218,10 @@
           </div>
 
           <div style="text-align:center; margin-top: 22px; line-height: 1.6;">
-            9/27(토) 마포청년나루에서<br/>
+            9/27(토) 13시 마포청년나루에서<br/>
             우리와 같은 '위장 외향인'들과<br/>
             오늘 작성해 주신 답변을 포함한<br/>
-            다양한 이야기들을 나눠보아요☺
+            다양한 이야기들을 나눠보아요😊
           </div>
         </article>
       </div>
@@ -238,7 +238,8 @@
   </script>
 
   <!-- ====== Kakao Map SDK (반드시 1회만 포함) ====== -->
-  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=6cdb10206a012a3420b655b28879c51b&autoload=false"></script>
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=fb596c905bf4de0de19267f0ada3a534&autoload=false"></script>
+
 
   <!-- ====== 지도 로딩: DOMContentLoaded → kakao.maps.load → relayout ====== -->
   <script>
@@ -263,7 +264,7 @@
 
         // 인포윈도우
         const info = new kakao.maps.InfoWindow({
-          content: `<div style="padding:6px 10px;font-size:12px">${PLACE_NAME}</div>`
+          content: `<div style="padding:4px 6px;font-size:12px;white-space:nowrap;display:inline-block;min-width:auto;max-width:none">${PLACE_NAME}</div>`
         });
         info.open(map, marker);
 
